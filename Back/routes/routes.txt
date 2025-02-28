@@ -1,0 +1,3 @@
+En esta carpeta van los endpoints a la base de datos, es decir por ejemplo para el historial de eventos
+se crearía el archivo historialRoutes.js y entonces acá se importa la conexión y se establecen los métodos
+o funciones para obtener info para cargar a la página de manera predeterminada o los que sean específicos
