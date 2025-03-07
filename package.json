@@ -1,0 +1,28 @@
+{
+  "name": "eventosocaso_nuevastecnologias",
+  "version": "1.0.0",
+  "description": "eventos-ocaso/\r │\r ├── backend/                  # Carpeta para el backend (Node.js)\r │   ├── config/               # Configuración de la base de datos y otros ajustes\r │   │   └── db.js             # Configuración de la conexión a MySQL\r │   ├── controllers/          # Lógica de controladores (funciones para manejar rutas)\r │   │   ├── authController.js # Controlador para login y registro\r │   │   ├── reservaController.js # Controlador para las reservas\r │   │   └── historialController.js # Controlador para el historial\r │   ├── models/               # Modelos de base de datos (MySQL)\r │   │   ├── user.js           # Modelo para los usuarios\r │   │   ├── evento.js         # Modelo para los eventos\r │   │   └── reserva.js        # Modelo para las reservas\r │   ├── routes/               # Rutas del servidor\r │   │   ├── authRoutes.js     # Rutas para login y registro\r │   │   ├── reservaRoutes.js  # Rutas para hacer reservas\r │   │   └── historialRoutes.js# Rutas para historial\r │   ├── server.js             # Archivo principal de servidor\r │   └── middleware/           # Middleware para autenticación, validación, etc.\r │       └── authMiddleware.js # Middleware para verificar si el usuario está autenticado\r │\r ├── frontend/                 # Carpeta para el front-end (HTML, CSS, JS)\r │   ├── assets/               # Archivos estáticos (imágenes, iconos, fuentes, etc.)\r │   ├── css/                  # Archivos CSS\r │   │   └── loginregister.css # Estilos únicos para estas dos páginas\r |   |   └── styles.css        # Estilos globales\r │   ├── js/                   # Archivos JavaScript\r │   │   └── app.js            # Funciones y lógica en JS\r │   ├── pages/                # Páginas HTML\r │   │   ├── index.html        # Página principal\r │   │   ├── login.html        # Página de login\r │   │   ├── register.html     # Página de registro\r │   │   ├── servicios.html    # Página con la descripción de servicios\r │   │   ├── reservas.html     # Página de reserva de eventos\r │   │   └── historial.html    # Página de historial de eventos\r │   ├── partials/             # Componentes reutilizables (cabecera, pie de página)\r │       ├── header.html       # Cabecera del sitio\r │       └── footer.html       # Pie de página del sitio\r │\r ├── .gitignore                # Archivos que no deben ser versionados\r ├── package.json              # Dependencias del proyecto y configuración de npm\r └── README.md                 # Descripción del proyecto",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yes-ID33/EventosOcaso_NuevasTecnologias.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yes-ID33/EventosOcaso_NuevasTecnologias/issues"
+  },
+  "homepage": "https://github.com/Yes-ID33/EventosOcaso_NuevasTecnologias#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "mysql2": "^3.12.0"
+  }
+}

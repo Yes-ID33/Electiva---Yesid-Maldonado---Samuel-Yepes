@@ -1,7 +1,7 @@
 /* Estilo general para la página */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f4f8;
+    background-color: #f0f4f8; /* Color de fondo sólido */
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,20 +12,19 @@ body {
 
 /* Contenedor principal */
 .container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+    padding: 40px; /* Aumentar padding */
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
     width: 100%;
-    max-width: 500px;
-    margin: 20px;
+    max-width: 400px; /* Ajustar el ancho máximo */
 }
 
 /* Título del formulario */
 h1 {
     text-align: center;
-    font-size: 24px;
-    color: #333;
+    font-size: 28px; /* Aumentar tamaño de fuente */
+    color: #333; /* Texto oscuro */
     margin-bottom: 20px;
 }
 
@@ -38,45 +37,47 @@ form {
 
 /* Estilo para los labels */
 label {
-    font-size: 16px;
-    color: #555;
-    margin: 0 7px; /* Márgenes simétricos a ambos lados */
-    padding: 5px 0;
+    font-size: 16px; /* Tamaño de fuente */
+    color: #555; /* Texto gris */
 }
 
 /* Estilo para los inputs */
 input[type="text"],
 input[type="email"],
-input[type="password"],
-input[type="date"],
-input[type="datetime-local"] {
-    padding: 10px;
+input[type="password"] {
+    padding: 12px; /* Aumentar padding */
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 2px solid #007BFF; /* Borde azul */
+    border-radius: 6px; /* Bordes redondeados */
     width: 100%;
-    margin: 0 10px; /* Aseguramos que los inputs se alineen simétricamente */
+    transition: border-color 0.3s; /* Transición suave */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #0056b3; /* Color al enfocar */
 }
 
 /* Botón de envío */
 button[type="submit"] {
-    background-color: #007BFF;
+    background-color: #007BFF; /* Fondo azul */
     color: white;
-    padding: 10px;
-    font-size: 16px;
+    padding: 12px; /* Aumentar padding */
+    font-size: 18px; /* Aumentar tamaño de fuente */
     border: none;
-    border-radius: 4px;
+    border-radius: 6px; /* Bordes redondeados */
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
 }
 
 button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Oscurecer al pasar el mouse */
 }
 
 /* Estilo para el enlace de registro */
 a {
-    color: #007BFF;
+    color: #007BFF; /* Texto azul */
     text-decoration: none;
     text-align: center;
 }
@@ -87,6 +88,30 @@ a:hover {
 
 /* Media Queries para responsividad */
 @media (max-width: 768px) {
+    .container {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    label {
+        font-size: 16px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        font-size: 14px;
+    }
+
+    button[type="submit"] {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
     .container {
         padding: 20px;
     }
@@ -101,40 +126,13 @@ a:hover {
 
     input[type="text"],
     input[type="email"],
-    input[type="password"],
-    input[type="date"],
-    input[type="datetime-local"] {
-        font-size: 14px;
+    input[type="password"] {
+        font-size: 12px;
     }
 
     button[type="submit"] {
         font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 15px;
+        padding: 10px;
     }
 
-    h1 {
-        font-size: 20px;
-    }
-
-    label {
-        font-size: 13px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    input[type="date"],
-    input[type="datetime-local"] {
-        font-size: 13px;
-    }
-
-    button[type="submit"] {
-        font-size: 13px;
-        padding: 8px;
-    }
 }

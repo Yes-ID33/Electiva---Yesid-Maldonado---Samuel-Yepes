@@ -1,1 +1,0 @@
-//config del server, aunque creo que solo es necesario el conexion.js

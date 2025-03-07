@@ -4,13 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos Ocaso - Registro</title>
-    <link rel="stylesheet" href="../css/loginregister.css">
+    <link rel="stylesheet" href="../css/loginRegister.css">
+    <style>
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none; /* Oculto por defecto */
+        }
+
+        .background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+    </style>
 </head>
 <body>
+    <video autoplay loop muted class="background-video">
+        <source src="c:\Users\ACER\Downloads\226795_small.mp4" type="video/mp4">
+    </video>
     <div class="container">
         <div class="form-container">
             <h2>Crear cuenta</h2>
-            <form action="/signup" method="POST">
+            <form action="../resources/226795_small.mp4" method="POST" onsubmit="return validarRegistro()">
                 <label for="name">Nombre:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -21,12 +42,29 @@
                 <input type="password" id="password" name="password" required>
 
                 <label for="confirm-password">Confirmar Contraseña:</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
+                <input type="password" id="confirm-password" name="confirmPassword" required>
+                <p id="error-message" class="error-message">Las contraseñas no coinciden</p>
 
                 <button type="submit">Crear cuenta</button>
             </form>
-            <p>Ya tienes una cuenta? <a href="./login.html">Inicia sesión aquí</a></p>
+            <p>¿Ya tienes una cuenta? <a href="./login.html">Inicia sesión aquí</a></p>
         </div>
     </div>
+
+    <script>
+        function validarRegistro() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm-password").value;
+            var errorMessage = document.getElementById("error-message");
+
+            if (password !== confirmPassword) {
+                errorMessage.style.display = "block"; // Muestra el mensaje de error
+                return false; // Evita que el formulario se envíe
+            } else {
+                errorMessage.style.display = "none"; // Oculta el mensaje si todo está bien
+                return true; // Permite el envío del formulario
+            }
+        }
+    </script>
 </body>
 </html>

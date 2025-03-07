@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos Ocaso - Registro/Login</title>
-    <link rel="stylesheet" href="../css/loginregister.css">
+    <link rel="stylesheet" href="../css/loginRegister.css">
+    <style> .background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+    </style>
 </head>
 <body>
+    <video autoplay loop muted class="background-video">
+        <source src="../resources/226795_small.mp4" type="video/mp4">
+    </video>
     <div class="container">
         <h1>Iniciar sesión / Registro</h1>
-        <form action="/login" method="POST">
+        <form action="http://localhost:3000/login" method="POST">
             <label for="email">Correo electrónico</label>
             <input type="email" id="email" name="email" required>
             
@@ -18,7 +31,7 @@
             
             <button type="submit">Iniciar sesión</button>
         </form>
-        <p>¿No tienes cuenta? <a href="/register">Regístrate aquí</a></p>
+        <p>¿No tienes cuenta? <a href="./register.html">Regístrate aquí</a></p>
     </div>
 </body>
 </html>

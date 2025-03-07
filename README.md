@@ -1,29 +1,25 @@
 eventos-ocaso/
 │
-├── backend/                  # Carpeta para el backend (Node.js)
+├── back/                     # Carpeta para el backend (Node.js)
 │   ├── config/               # Configuración de la base de datos y otros ajustes
-│   │   └── db.js             # Configuración de la conexión a MySQL
+│   │   └── conexion.js             # Configuración de la conexión a MySQL
 │   ├── controllers/          # Lógica de controladores (funciones para manejar rutas)
 │   │   ├── authController.js # Controlador para login y registro
 │   │   ├── reservaController.js # Controlador para las reservas
 │   │   └── historialController.js # Controlador para el historial
-│   ├── models/               # Modelos de base de datos (MySQL)
-│   │   ├── user.js           # Modelo para los usuarios
-│   │   ├── evento.js         # Modelo para los eventos
-│   │   └── reserva.js        # Modelo para las reservas
 │   ├── routes/               # Rutas del servidor
 │   │   ├── authRoutes.js     # Rutas para login y registro
 │   │   ├── reservaRoutes.js  # Rutas para hacer reservas
 │   │   └── historialRoutes.js# Rutas para historial
-│   ├── server.js             # Archivo principal de servidor
 │   └── middleware/           # Middleware para autenticación, validación, etc.
 │       └── authMiddleware.js # Middleware para verificar si el usuario está autenticado
 │
-├── frontend/                 # Carpeta para el front-end (HTML, CSS, JS)
+├── front/                 # Carpeta para el front-end (HTML, CSS, JS)
 │   ├── assets/               # Archivos estáticos (imágenes, iconos, fuentes, etc.)
 │   ├── css/                  # Archivos CSS
-│   │   └── loginregister.css # Estilos únicos para estas dos páginas
-|   |   └── styles.css        # Estilos globales
+│   │   └── loginRegister.css # Estilos únicos para estas dos páginas
+|   |   └── generalStyles.css # Estilos globales
+|   |   └── headerFooter.css  # Estilos para el header y footer 
 │   ├── js/                   # Archivos JavaScript
 │   │   └── app.js            # Funciones y lógica en JS
 │   ├── pages/                # Páginas HTML
@@ -39,7 +35,8 @@ eventos-ocaso/
 │
 ├── .gitignore                # Archivos que no deben ser versionados
 ├── package.json              # Dependencias del proyecto y configuración de npm
-└── README.md                 # Descripción del proyecto
+├── README.md                 # Descripción del proyecto
+└── server.js             # Archivo principal de servidor
 
 loginregister.css:
 /* Estilo general para la página */
