@@ -1,3 +1,5 @@
+/*
+/*
 require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
@@ -116,4 +118,9 @@ app.get('/', (req, res) => {
 // Servidor en marcha
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
-});
+}*/
+/*
+
+}
+
+});*/

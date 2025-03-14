@@ -5,15 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos Ocaso - Registro/Login</title>
     <link rel="stylesheet" href="../css/loginRegister.css">
-    <style> .background-video {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-    }
+    <style> 
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        /* Estilo para la opción de invitado */
+        .guest-option {
+            margin-top: 20px;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .guest-button {
+            display: block;
+            background-color: #6c757d; /* Color gris más suave que el botón principal */
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 10px;
+            text-align: center;
+        }
+        
+        .guest-button:hover {
+            background-color: #5a6268;
+            text-decoration: none;
+        }
+        
+        .separator {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .separator::before,
+        .separator::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .separator span {
+            padding: 0 10px;
+            color: #555;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -22,7 +70,7 @@
     </video>
     <div class="container">
         <h1>Iniciar sesión / Registro</h1>
-        <form action="http://localhost:3000/login" method="POST">
+        <form action="./index-autenticado.html" method="GET">
             <label for="email">Correo electrónico</label>
             <input type="email" id="email" name="email" required>
             
@@ -31,7 +79,16 @@
             
             <button type="submit">Iniciar sesión</button>
         </form>
-        <p>¿No tienes cuenta? <a href="./register.html">Regístrate aquí</a></p>
+        
+        <div class="separator">
+            <span>O</span>
+        </div>
+        
+        <div class="guest-option">
+            <a href="./index.html" class="guest-button">Continuar como invitado</a>
+        </div>
+        
+        <p style="text-align: center; margin-top: 20px;">¿No tienes cuenta? <a href="./register.html">Regístrate aquí</a></p>
     </div>
 </body>
 </html>
