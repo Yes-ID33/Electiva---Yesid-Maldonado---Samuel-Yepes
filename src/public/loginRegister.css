@@ -1,0 +1,185 @@
+/* Estilo general para la página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8; /* Color de fondo sólido */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+    padding: 40px; /* Aumentar padding */
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    width: 100%;
+    max-width: 400px; /* Ajustar el ancho máximo */
+}
+
+/* Título del formulario */
+h1 {
+    text-align: center;
+    font-size: 28px; /* Aumentar tamaño de fuente */
+    color: #333; /* Texto oscuro */
+    margin-bottom: 20px;
+}
+
+/* Estilo para el formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilo para los labels */
+label {
+    font-size: 16px; /* Tamaño de fuente */
+    color: #555; /* Texto gris */
+}
+
+/* Estilo para los inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 12px; /* Aumentar padding */
+    font-size: 16px;
+    border: 2px solid #007BFF; /* Borde azul */
+    border-radius: 6px; /* Bordes redondeados */
+    width: 100%;
+    transition: border-color 0.3s; /* Transición suave */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #0056b3; /* Color al enfocar */
+}
+
+/* Botón de envío */
+button[type="submit"] {
+    background-color: #007BFF; /* Fondo azul */
+    color: white;
+    padding: 12px; /* Aumentar padding */
+    font-size: 18px; /* Aumentar tamaño de fuente */
+    border: none;
+    border-radius: 6px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Oscurecer al pasar el mouse */
+}
+
+/* Estilo para el enlace de registro */
+a {
+    color: #007BFF; /* Texto azul */
+    text-decoration: none;
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    label {
+        font-size: 16px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        font-size: 14px;
+    }
+
+    button[type="submit"] {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        font-size: 12px;
+    }
+
+    button[type="submit"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    /* Estilos para la opción de invitado */
+.guest-option {
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px;
+}
+
+.guest-button {
+    display: block;
+    background-color: #6c757d; /* Color gris más suave que el botón principal */
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.guest-button:hover {
+    background-color: #5a6268;
+    text-decoration: none;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+}
+
+.separator span {
+    padding: 0 10px;
+    color: #555;
+    font-size: 14px;
+}
+
+}
