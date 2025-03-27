@@ -6,9 +6,11 @@ header {
   justify-content: space-between;
   padding: 1.2rem 5%;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 header .nav-left ul, header .nav-right ul {
@@ -90,8 +92,9 @@ footer {
   text-align: center;
   padding: 1rem;
   position: relative;
-  width: 100%;
+  width: 100%; /* Ancho completo para que coincida con el viewport */
   margin-top: 3rem;
+  box-sizing: border-box; /* Incluye el padding dentro del ancho total */
 }
 
 .footer-content {
@@ -100,7 +103,8 @@ footer {
   align-items: center;
   padding: 3rem 0;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto; /* Centra el contenido del footer */
+  box-sizing: border-box; /* Previene que el padding afecte el ancho total */
 }
 
 .footer-content button {
@@ -139,21 +143,38 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 50px; /* Tamaño base del ícono */
+  height: 50px; /* Tamaño base del ícono */
   margin: 0 0.7rem;
   background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
+  border-radius: 50%; /* Hace que el ícono sea circular */
   transition: var(--transition);
 }
 
 .social-icons img {
-  width: 20px;
-  height: 20px;
+  width: 100%; /* Ocupa el 100% del círculo */
+  height: 100%; /* Ocupa el 100% del círculo */
+  border-radius: 50%; /* Asegura que la imagen sea circular */
+  object-fit: cover; /* Ajusta la imagen dentro del círculo */
   transition: var(--transition);
 }
 
 .social-icons a:hover {
   background-color: var(--secondary-color);
   transform: translateY(-5px);
+}
+
+/* Ajustes responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .social-icons a {
+      width: 40px; /* Reduce el tamaño en pantallas más pequeñas */
+      height: 40px; /* Reduce el tamaño en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .social-icons a {
+      width: 30px; /* Tamaño aún más pequeño para móviles */
+      height: 30px; /* Tamaño aún más pequeño para móviles */
+  }
 }

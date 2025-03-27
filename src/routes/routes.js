@@ -3,8 +3,6 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const router = express.Router();
-
-// Obtener el directorio actual
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Ruta para la página principal
@@ -22,9 +20,14 @@ router.get('/register.html', (req, res) => {
     res.sendFile(join(__dirname, '../views', 'register.html'));
 });
 
-// Ruta para otras páginas
+// Ruta para la página de servicios
 router.get('/servicios.html', (req, res) => {
     res.sendFile(join(__dirname, '../views', 'servicios.html'));
+});
+
+// Ruta para la página de reservas
+router.get('/reservas.html', (req, res) => {
+    res.sendFile(join(__dirname, '../views', 'reservas.html'));
 });
 
 export default router;
