@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Ocaso - Iniciar Sesión</title>
+    <link rel="stylesheet" href="/headerFooter.css"> <!-- Para el header y footer -->
+    <link rel="stylesheet" href="/loginRegister.css"> <!-- Estilos específicos para login y registro -->
+    <style>
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Coloca el video en el fondo */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header global -->
+    <header>
+        <div class="nav-left">
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/servicios.html">Servicios</a></li>
+                    <li><a href="/reservas.html">Reservas</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="nav-right">
+            <nav>
+                <ul>
+                    <li><a href="/login.html">Iniciar Sesión</a></li>
+                    <li><a href="/register.html">Registrarse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Video de fondo -->
+    <video autoplay loop muted class="background-video">
+        <source src="/226795_small.mp4" type="video/mp4">
+    </video>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <h1>Iniciar sesión / Registro</h1>
+        <form action="http://localhost:8080/login" method="POST">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Iniciar sesión</button>
+        </form>
+        <p>¿No tienes cuenta? <a href="./register.html">Regístrate aquí</a></p>
+    </div>
+</body>
+</html>

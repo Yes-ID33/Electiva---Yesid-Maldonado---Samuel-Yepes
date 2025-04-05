@@ -1,0 +1,180 @@
+/* Estilos del Header */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem 5%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+header .nav-left ul, header .nav-right ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+header .nav-left ul li, header .nav-right ul li {
+  margin: 0 1.2rem;
+  position: relative;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  transition: var(--transition);
+  position: relative;
+}
+
+header nav ul li a:hover {
+  color: var(--secondary-color);
+}
+
+header nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--secondary-color);
+  transition: var(--transition);
+}
+
+header nav ul li a:hover::after {
+  width: 100%;
+}
+
+.nav-right {
+  margin-right: 2rem;
+}
+
+/* Estilos responsivos para el header */
+@media (max-width: 768px) {
+  header {
+      flex-direction: column;
+      padding: 1rem;
+  }
+
+  header .nav-left, header .nav-right {
+      width: 100%;
+      margin: 0.5rem 0;
+  }
+
+  header .nav-left ul, header .nav-right ul {
+      justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  header .nav-left ul li, header .nav-right ul li {
+      margin: 0 0.6rem;
+  }
+
+  header nav ul li a {
+      font-size: 0.9rem;
+  }
+}
+
+/* Estilos del Footer */
+footer {
+  background-color: var(--dark-color);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  width: 100%; /* Ancho completo para que coincida con el viewport */
+  margin-top: 3rem;
+  box-sizing: border-box; /* Incluye el padding dentro del ancho total */
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0;
+  max-width: 1200px;
+  margin: 0 auto; /* Centra el contenido del footer */
+  box-sizing: border-box; /* Previene que el padding afecte el ancho total */
+}
+
+.footer-content button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  margin: 0.7rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-content button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.footer-content p {
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.social-icons {
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* Tamaño base del ícono */
+  height: 50px; /* Tamaño base del ícono */
+  margin: 0 0.7rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%; /* Hace que el ícono sea circular */
+  transition: var(--transition);
+}
+
+.social-icons img {
+  width: 100%; /* Ocupa el 100% del círculo */
+  height: 100%; /* Ocupa el 100% del círculo */
+  border-radius: 50%; /* Asegura que la imagen sea circular */
+  object-fit: cover; /* Ajusta la imagen dentro del círculo */
+  transition: var(--transition);
+}
+
+.social-icons a:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-5px);
+}
+
+/* Ajustes responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .social-icons a {
+      width: 40px; /* Reduce el tamaño en pantallas más pequeñas */
+      height: 40px; /* Reduce el tamaño en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .social-icons a {
+      width: 30px; /* Tamaño aún más pequeño para móviles */
+      height: 30px; /* Tamaño aún más pequeño para móviles */
+  }
+}
