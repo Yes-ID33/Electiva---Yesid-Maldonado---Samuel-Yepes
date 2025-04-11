@@ -1,6 +1,10 @@
 import path from 'path';
+import { fileURLToPath } from 'url';
 import bcrypt from 'bcrypt';
 import db from '../repositories/conexion.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 class LoginController {
     // Manejar el login de usuarios
@@ -23,8 +27,11 @@ class LoginController {
                 return res.status(401).send('Correo o contraseña incorrectos');
             }
 
-            res.status(200).send('Inicio de sesión exitoso');
+            // Redirigir al usuario a index.html después de iniciar sesión
+            res.redirect('/');
+            
         } catch (error) {
+            console.error('Error en el servidor:', error.message);
             res.status(500).send('Error en el servidor');
         }
     }
@@ -33,7 +40,6 @@ class LoginController {
     getLoginPage(req, res) {
         res.sendFile(path.join(__dirname, '../views/login.html'));
     }
-
 }
 
 export default new LoginController();
