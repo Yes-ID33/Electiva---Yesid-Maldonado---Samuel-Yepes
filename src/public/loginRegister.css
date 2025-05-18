@@ -9,6 +9,17 @@ body {
     align-items: center;
     height: 100vh;
 }
+body.reservas {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8; /* Color de fondo sólido */
+    margin: 0;
+    padding: 0;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 
 /* Contenedor principal */
 .container {
@@ -17,10 +28,19 @@ body {
     border-radius: 12px; /* Bordes más redondeados */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
     width: 100%;
-    max-width: 400px; /* Ajustar el ancho máximo */
+    max-width: 440px; /* Ajustar el ancho máximo */
 }
 
 /* Título del formulario */
+.hero h1 {
+    color: white;
+    font-size: 3.5rem;
+    margin: 0;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-out;
+}
+
 h1 {
     text-align: center;
     font-size: 28px; /* Aumentar tamaño de fuente */
@@ -90,6 +110,42 @@ form button:hover {
     display: none; /* Oculto por defecto */
 }
 
+/* Estilo para el select */
+select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #007BFF; /* Mismo borde azul que los inputs */
+    border-radius: 6px;
+    background-color: white;
+    color: #333; /* Texto oscuro */
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Estilo al enfocar el select */
+select:focus {
+    border-color: #0056b3; /* Oscurecer el borde al seleccionar */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Estilo para las opciones dentro del select */
+option {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Placeholder para que no haya opción preseleccionada */
+select option[disabled] {
+    color: #aaa;
+}
+
+/* Ajuste para que no se vea el selector nativo en navegadores como Safari */
+select::-webkit-select-placeholder {
+    color: #aaa;
+}
+
 /* Estilo para los labels */
 label {
     font-size: 16px; /* Tamaño de fuente */
@@ -99,7 +155,9 @@ label {
 /* Estilo para los inputs */
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="vestimenta"],
+input[type="number"] {
     padding: 12px; /* Aumentar padding */
     font-size: 16px;
     border: 2px solid #007BFF; /* Borde azul */
@@ -112,6 +170,35 @@ input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
     border-color: #0056b3; /* Color al enfocar */
+}
+
+/* Estilo para los campos de fecha y hora */
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #007BFF; /* Borde azul */
+    border-radius: 6px;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Cambios visuales al interactuar */
+input[type="date"]:focus,
+input[type="time"]:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Ajuste para los selectores nativos de algunos navegadores */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(30%);
+    cursor: pointer;
 }
 
 /* Botón de envío */
