@@ -14,19 +14,23 @@
         <div class="nav-left">
             <nav>
                 <ul>
-                    <li><a href="/">Inicio</a></li> <!-- Ruta para el inicio -->
-                    <li><a href="/servicios.html">Servicios</a></li> <!-- Ruta para servicios -->
-                    <li><a href="/reservas.html">Reservas</a></li> <!-- Ruta para reservas -->
-
-
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/servicios.html">Servicios</a></li>
+                    <li class="dropdown">
+                        <a href="#">Reservas ▼</a> <!-- Botón del menú -->
+                        <ul class="dropdown-menu">
+                            <li><a href="/reservas.html">Reservar</a></li>
+                            <li><a href="/historial.html">Ver reservas</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </div>
         <div class="nav-right">
             <nav>
                 <ul>
-                    <li><a href="/login.html">Iniciar Sesión</a></li> <!-- Ruta para login -->
-                    <li><a href="/register.html">Registrarse</a></li> <!-- Ruta para registro -->
+                    <li><a href="/login.html">Iniciar Sesión</a></li>
+                    <li><a href="/register.html">Registrarse</a></li>
                 </ul>
             </nav>
         </div>
@@ -42,7 +46,7 @@
     <form action="/submit-event" method="POST">
         <!-- Tipo de evento -->
         <label for="tipo-evento">Tipo de evento:</label>
-        <select id="tipo-evento" name="tipo-evento" required class="input-field">
+        <select id="tipo-evento" name="tipoEvento" required class="input-field">
             <option value="" disabled selected>Selecciona un tipo de evento</option>
             <option value="boda">Boda</option>
             <option value="cumpleaños">Cumpleaños</option>

@@ -228,6 +228,73 @@ a:hover {
     text-decoration: underline;
 }
 
+.historial-container {
+    display: flex;
+    gap: 4%;
+    padding: 3%;
+    margin-top: 3rem;
+}
+
+/* Estilos de la tabla de eventos */
+.eventos-list {
+    width: 60%;
+}
+
+.eventos-tabla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.eventos-tabla th, .eventos-tabla td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.eventos-tabla th {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Estilos para el formulario */
+.update-form {
+    width: 30%;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* Estilo para los botones cancelar y actualizar*/
+.btn-danger, .btn-update {
+    margin-bottom: 12px; /* Agrega espacio entre los botones */
+    color: white;
+    padding: 10px 11px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-danger {
+    background-color: red;
+}
+
+.btn-danger:hover {
+    background-color: darkred;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-update {
+    background-color: #17a2b8; /* Color Bootstrap btn-info */    
+}
+
+.btn-update:hover {
+    background-color: #0a545f; /* Color más oscuro al pasar el cursor */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 /* Media Queries para responsividad */
 @media (max-width: 768px) {
     .container {

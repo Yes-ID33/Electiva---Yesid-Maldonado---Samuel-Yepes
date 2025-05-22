@@ -334,12 +334,6 @@
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   }
 
-  @media (max-width: 600px) {
-    .plans li {
-        max-width: 90%;
-    }
-  }
-
   /* Services Section */
   .services-info {
     display: flex;
@@ -383,23 +377,11 @@
   }
 
   .service-card ul li {
-    background: url('check-icon.svg') no-repeat left center;
     background-size: 20px;
     padding-left: 30px;
     margin-bottom: 10px;
     color: var(--accent-color);
     font-weight: bold;
-  }
-
-  @media (max-width: 768px) {
-    .services-info {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .service-card {
-      max-width: 90%;
-    }
   }
 
   /* Animations */
@@ -478,6 +460,21 @@
     
     .testimonial {
       flex: 1 1 100%;
+    }
+
+    .services-info {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .service-card {
+      max-width: 90%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .plans li {
+        max-width: 90%;
     }
   }
   

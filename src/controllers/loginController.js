@@ -6,6 +6,8 @@ import db from '../repositories/conexion.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+let usuarioActualId = null; // Variable global para almacenar el ID del usuario autenticado
+
 class LoginController {
     // Manejar el login de usuarios
     async login(req, res) {
@@ -27,6 +29,9 @@ class LoginController {
                 return res.status(401).send('Correo o contraseña incorrectos');
             }
 
+            // Guardar el ID del usuario en la variable global
+            usuarioActualId = user.id;
+
             // Redirigir al usuario a index.html después de iniciar sesión
             res.redirect('/');
             
@@ -34,6 +39,11 @@ class LoginController {
             console.error('Error en el servidor:', error.message);
             res.status(500).send('Error en el servidor');
         }
+    }
+
+    // Obtener el ID del usuario autenticado
+    getUsuarioActual() {
+        return usuarioActualId;
     }
 
     // Renderizar la página de inicio de sesión

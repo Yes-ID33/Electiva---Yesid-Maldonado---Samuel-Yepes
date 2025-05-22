@@ -30,4 +30,9 @@ router.get('/reservas.html', (req, res) => {
     res.sendFile(join(__dirname, '../views', 'reservas.html'));
 });
 
+// Ruta para ir al historial
+router.get('/historial.html', (req, res) => {
+    res.sendFile(join(__dirname, '../views', 'historial.html'))
+});
+
 export default router;

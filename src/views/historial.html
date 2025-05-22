@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventosOcaso - Historial de Reservas</title>
+    <link rel="stylesheet" href="/generalStyles.css">
+    <link rel="stylesheet" href="/headerFooter.css">
+    <link rel="stylesheet" href="/loginRegister.css">
+</head>
+<body class="reservas">
+    <!-- Header -->
+    <header>
+        <div class="nav-left">
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/servicios.html">Servicios</a></li>
+                    <li class="dropdown">
+                        <a href="#">Reservas ▼</a> <!-- Botón del menú -->
+                        <ul class="dropdown-menu">
+                            <li><a href="/reservas.html">Reservar</a></li>
+                            <li><a href="/historial.html">Ver reservas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="nav-right">
+            <nav>
+                <ul>
+                    <li><a href="/login.html">Iniciar Sesión</a></li>
+                    <li><a href="/register.html">Registrarse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección de eventos -->
+    <section class="historial-container">
+        <div class="eventos-list">
+            <h2>Tus eventos</h2>
+            <table class="eventos-tabla">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tipo de evento</th>
+                        <th>Dirección</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Invitados</th>
+                        <th>Código Vestimenta</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-eventos">
+                    <!-- Eventos cargados dinámicamente -->
+                </tbody>
+            </table>
+            <button id="mostrar-mas" class="btn-info">Mostrar más eventos</button>
+        </div>
+
+        <!-- Formulario de actualización -->
+        <div class="update-form">
+            <h2>Actualizar evento</h2>
+            <form id="update-form">
+                <input type="text" id="id-evento" name="id-evento" required class="input-field" placeholder="ID del evento">
+                <label for="tipo-evento">Tipo de evento:</label>
+                <select id="tipo-evento" name="tipo-evento" required class="input-field">
+                    <option value="" disabled selected>Selecciona un tipo de evento</option>
+                    <option value="boda">Boda</option>
+                    <option value="cumpleaños">Cumpleaños</option>
+                    <option value="cumpleaños-infantil">Cumpleaños Infantil</option>
+                    <option value="reunion-laboral">Reunión Laboral</option>
+                    <option value="despedida-soltero">Despedida de Soltero/a</option>
+                    <option value="conferencia">Conferencia</option>
+                </select>
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" class="input-field">
+
+                <label for="fecha">Fecha del evento:</label>
+                <input type="date" id="fecha" name="fecha" required class="input-field">
+
+                <label for="hora">Hora exacta:</label>
+                <input type="time" id="hora" name="hora" required class="input-field">
+
+                <label for="invitados">Cantidad de invitados:</label>
+                <input type="number" id="invitados" name="invitados" required class="input-field">
+
+                <label for="vestimenta">Código de vestimenta (opcional):</label>
+                <input type="text" id="vestimenta" name="vestimenta" class="input-field">
+
+                <button type="submit" class="btn-primary">Actualizar Evento</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+    document.getElementById("update-form").addEventListener("submit", async function(event) {
+        event.preventDefault(); // 🔄 Evita la recarga de la página
+
+        const idEvento = document.getElementById("id-evento").value;
+        const tipoEvento = document.getElementById("tipo-evento").value;
+        const direccion = document.getElementById("direccion").value;
+        const fecha = document.getElementById("fecha").value;
+        const hora = document.getElementById("hora").value;
+        const invitados = document.getElementById("invitados").value;
+        const vestimenta = document.getElementById("vestimenta").value;
+
+        try {
+            let response = await fetch('/update-event', {
+                method: 'POST', // ✅ Si tu servidor usa PUT, cámbialo a 'PUT'
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ idEvento, tipoEvento, direccion, fecha, hora, invitados, vestimenta })
+            });
+
+            if (!response.ok) {
+                throw new Error("No se pudo actualizar el evento.");
+            }
+
+            alert("Evento actualizado exitosamente.");
+            location.reload(); // 🔄 Recargar solo los eventos actualizados
+        } catch (error) {
+            console.error("Error al actualizar evento:", error);
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", async function() {
+        try {
+            let response = await fetch('/mis-eventos');
+            let eventos = await response.json();
+            let tablaEventos = document.getElementById('tabla-eventos');
+            let mostrarMasBtn = document.getElementById('mostrar-mas');
+            let eventosMostrados = 10;
+
+            function mostrarEventos() {
+                tablaEventos.innerHTML = '';
+                eventos.slice(0, eventosMostrados).forEach(evento => {
+                    let row = `<tr>
+                        <td>${evento.idEvento}</td>
+                        <td>${evento.tipoEvento}</td>
+                        <td>${evento.direccion}</td>
+                        <td>${evento.fechaEvento}</td>
+                        <td>${evento.horaEvento}</td>
+                        <td>${evento.cantInvitados}</td>
+                        <td>${evento.codigoVestimenta || '-'}</td>
+                        <td>
+                            <button class="btn-danger" onclick="eliminarEvento(${evento.idEvento})">Cancelar</button>
+                            <button class="btn-update" onclick="cargarEvento(${evento.idEvento})">Actualizar</button>
+                        </td>
+                    </tr>`;
+                    tablaEventos.innerHTML += row;
+                });
+            }
+
+            mostrarEventos();
+
+            mostrarMasBtn.addEventListener('click', function() {
+                eventosMostrados += 10;
+                mostrarEventos();
+            });
+
+        } catch (error) {
+            console.error("Error al obtener eventos:", error);
+        }
+    });
+
+    async function eliminarEvento(idEvento) {
+        if (!confirm("¿Estás seguro de que quieres cancelar este evento?")) {
+            return;
+        }
+
+        try {
+            let response = await fetch('/delete-event', {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ idEvento })
+            });
+
+            if (!response.ok) {
+                throw new Error("No se pudo eliminar el evento.");
+            }
+
+            alert("Evento eliminado exitosamente.");
+            location.reload();
+        } catch (error) {
+            console.error("Error al eliminar evento:", error);
+        }
+    }
+
+    async function cargarEvento(idEvento) {
+        try {
+            let response = await fetch(`/evento/${idEvento}`);
+
+            if (!response.ok) {
+                throw new Error("Evento no encontrado.");
+            }
+
+            let evento = await response.json();
+
+            document.getElementById("id-evento").value = evento.idEvento;
+            document.getElementById("tipo-evento").value = evento.tipoEvento;
+            document.getElementById("direccion").value = evento.direccion;
+            document.getElementById("fecha").value = evento.fechaEvento;
+            document.getElementById("hora").value = evento.horaEvento;
+            document.getElementById("invitados").value = evento.cantInvitados;
+            document.getElementById("vestimenta").value = evento.codigoVestimenta || '';
+
+        } catch (error) {
+            console.error("Error al cargar evento para actualizar:", error);
+            alert("Error al cargar evento. Verifica que existe.");
+        }
+    }
+
+    </script>
+
+</body>
+</html>
